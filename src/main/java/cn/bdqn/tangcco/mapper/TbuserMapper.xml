@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bdqn.tangcco.mapper.TbuserMapper">
+
+    <select id="login"  resultType="Tbuser">
+        SELECT * FROM  tbuser where username=#{username} and password=#{password}
+    </select>
+    <select id="queryAllUser" resultType="Tbuser">
+        SELECT * FROM  tbuser order BY userid DESC
+    </select>
+    <select id="addUser" parameterType="Tbuser">
+        INSERT  INTO  tbuser VALUES (null,#{username},#{password},#{userroles},#{nickname},#{registrationtime},#{dateofbirth},#{systemtime})
+    </select>
+    <select id="updateUser" parameterType="Tbuser">
+        update tbuser set username=#{username} WHERE userid=#{userid}
+    </select>
+    <select id="deleteUser" parameterType="Tbuser">
+        DELETE from tbuser where userid=#{userid};
+
+    </select>
+    <select id="queryUserByUserid" resultType="Tbuser">
+        SELECT * FROM tbuser where userid=#{userid};
+    </select>resultType
+
+</mapper>
